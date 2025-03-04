@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Website with Carousel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: justify;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        section {
+            padding: 50px;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .carousel {
+            width: 80%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel img {
+            width: 100%;
+            display: none;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#education">Education</a>
+        <a href="#Professional History">Professional History</a>
+        <a href="#contact">Contact Me</a>
+    </nav>
+    
+    <section>
+        <h2>Welcome to my Website</h2>
+        <div class="carousel">
+            <img src="cat.jpg" class="active" alt="cat">
+            <img src="woah.jpg" alt="woah">
+            <img src="kat.jpg" alt="kat">
+        </div>
+        <div class="buttons">
+            <button onclick="prevImage()">Previous</button>
+            <button onclick="nextImage()">Next</button>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>My name is Numa Shree Limbu, and I am 24 years old, born in the year 2000.
+            I am passionate about exploring new experiences and continuously growing both personally and professionally. 
+            With a curious mind and a drive to achieve my goals, I strive to make meaningful contributions in everything I do. 
+            Whether it's learning new skills, engaging with different cultures, or pursuing my interests,
+            I embrace every opportunity with enthusiasm and determination.</p>
+    </section>
+    
+    <section id="education">
+        <h2>Education</h2>
+        <table>
+            <tr>
+                <th>Degree</th>
+                <th>Subject</th>
+                <th>Institution</th>
+                <th>Year of Completion</th>
+                <th>GPA</th>
+            </tr>
+            <tr>
+                <td>Bachelor</td>
+                <td>BCA</td>
+                <td>Nesfield International College</td>
+                <td>2021</td>
+                <td>3.30</td>
+            </tr>
+            <tr>
+                <td>+2</td>
+                <td>Business Management</td>
+                <td>DAV College</td>
+                <td>2017</td>
+                <td>3.21</td>
+            </tr>
+            <tr>
+                <td>SEE</td>
+                <td>Optional Math</td>
+                <td>Middle Point School</td>
+                <td>2015</td>
+                <td>3.90</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="Professional History">
+        <h2>Professional History</h2>
+        <ul>
+            <li>Worked as a software developer in ABC IT Company (December 2023 - January 2025)</li>
+            <li>Worked on front-end development using HTML, CSS, and JavaScript in XYZ IT Company (February 2022 - October 2023)</li>
+        </ul>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:limbunumashree@gmail.com">limbunumashree@gmail.com</a></p>
+        <p>Phone: +123 456 7890</p>
+    </section>
+    
+    <footer>
+        &copy; 2025 My Website. All rights reserved.
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll(".carousel img");
+
+        function showImage(index) {
+            images.forEach(img => img.classList.remove("active"));
+            images[index].classList.add("active");
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        }
+
+        // Auto-slide every 3 seconds
+        setInterval(nextImage, 3000);
+    </script>
+
+</body>
+</html>
