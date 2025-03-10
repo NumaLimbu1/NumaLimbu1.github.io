@@ -3,33 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Website with Carousel</title>
+    <title>My Personal Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             text-align: justify;
+            background-color: #f4f4f4;
         }
         nav {
             background-color: #333;
-            padding: 10px 0;
+            padding: 15px 0;
             text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
         nav a {
             color: white;
-            margin: 0 15px;
+            margin: 0 20px;
             text-decoration: none;
             font-size: 18px;
+            font-weight: bold;
         }
         section {
-            padding: 50px;
+            padding: 80px 50px;
             text-align: center;
+            margin-top: 50px;
         }
         footer {
             background-color: #333;
             color: white;
-            padding: 10px;
+            padding: 15px;
             text-align: center;
         }
         .carousel {
@@ -38,23 +45,26 @@
             margin: auto;
             overflow: hidden;
             position: relative;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
         .carousel img {
             width: 100%;
             display: none;
+            border-radius: 10px;
         }
         .carousel img.active {
             display: block;
         }
-        
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            background-color: white;
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 10px;
+            padding: 12px;
             text-align: left;
         }
         th {
@@ -70,26 +80,22 @@
     <nav>
         <a href="#about">About Me</a>
         <a href="#education">Education</a>
-        <a href="#Professional History">Professional History</a>
+        <a href="#history">Professional History</a>
         <a href="#contact">Contact Me</a>
     </nav>
     
     <section>
-        <h2>Welcome to my Website</h2>
+        <h2>Welcome to My Website</h2>
         <div class="carousel">
             <img src="cat.jpg" class="active" alt="cat">
             <img src="woah.jpg" alt="woah">
             <img src="kat.jpg" alt="kat">
         </div>
-       
+    </section>
 
     <section id="about">
         <h2>About Me</h2>
-        <p>My name is Numa Shree Limbu, and I am 24 years old, born in the year 2000.
-            I am passionate about exploring new experiences and continuously growing both personally and professionally. 
-            With a curious mind and a drive to achieve my goals, I strive to make meaningful contributions in everything I do. 
-            Whether it's learning new skills, engaging with different cultures, or pursuing my interests,
-            I embrace every opportunity with enthusiasm and determination.</p>
+        <p>My name is Numa Shree Limbu, and I am 24 years old, born in the year 2000. I am passionate about exploring new experiences and continuously growing both personally and professionally. I embrace every opportunity with enthusiasm and determination.</p>
     </section>
     
     <section id="education">
@@ -126,7 +132,7 @@
         </table>
     </section>
 
-    <section id="Professional History">
+    <section id="history">
         <h2>Professional History</h2>
         <ul>
             <li>Worked as a software developer in ABC IT Company (December 2023 - January 2025)</li>
@@ -158,14 +164,8 @@
             showImage(currentIndex);
         }
 
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            showImage(currentIndex);
-        }
-
-        // Auto-slide every 3 seconds
         setInterval(nextImage, 3000);
     </script>
-
 </body>
 </html>
+
